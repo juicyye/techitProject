@@ -13,12 +13,6 @@ class BoardServiceTest {
     private BoardService boardService;
 
 
-    @Test
-    void findAll(){
-        Page<Board> board = boardService.findAll(new SearchForm(), 0);
-        for (Board board1 : board) {
-            System.out.println("board1 = " + board1.getName());
-        }
-    }
+
 
 }

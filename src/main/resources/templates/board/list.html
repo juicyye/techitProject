@@ -17,6 +17,15 @@
         <span class="close-button" onclick="hideMessage('deleteMessage');">&times;</span>
     </div>
     <div class="table-responsive">
+        <form id="post-form" action="/board/search">
+            <select id="post-per-page" name="limit">
+                <option>페이지 설정</option>
+                <option value="5">5개씩 보기</option>
+                <option value="10">10개씩 보기</option>
+                <option value="20">20개씩 보기</option>
+            </select>
+            <input type="hidden" name="offset" value="0">
+        </form>
         <table class="table table-bordered table-hover">
             <thead class="thead-light">
             <tr>

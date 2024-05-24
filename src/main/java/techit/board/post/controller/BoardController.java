@@ -3,6 +3,7 @@ package techit.board.post.controller;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -24,16 +25,18 @@ public class BoardController {
     private final BoardService boardService;
 
     @GetMapping("/list")
-    public String list(Model model, @RequestParam(value = "offset", defaultValue = "0") int offset) {
-        Page<Board> boards = boardService.findAll(new SearchForm(), offset);
+    public String list(Model model, @RequestParam(value = "offset", defaultValue = "0") int offset,
+                       @RequestParam(value = "limit", defaultValue = "5") int limit) {
+        Page<Board> boards = boardService.findAll(new SearchForm(), offset,limit);
         model.addAttribute("boards", boards);
         return "board/list";
     }
 
 
     @GetMapping("/search")
-    public String boardList(@ModelAttribute("board") SearchForm form, Model model, @RequestParam(value = "offset", defaultValue = "0") int offset) {
-        Page<Board> boards = boardService.findAll(form, offset);
+    public String boardList(@ModelAttribute("board") SearchForm form, Model model, @RequestParam(value = "offset", defaultValue = "0") int offset,
+                            @RequestParam(value = "limit", defaultValue = "5") int limit ) {
+        Page<Board> boards = boardService.findAll(form, offset,limit);
         model.addAttribute("boards", boards);
         return "board/list";
     }

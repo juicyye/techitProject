@@ -35,8 +35,8 @@ public class BoardService {
     public void modifyBoard(ModifyForm form) {
         boardRepository.updateBoard(form);
     }
-    public Page<Board> findAll(SearchForm form, int offset) {
-        Pageable pageable =  PageRequest.of(offset, 5, Sort.by(Sort.Direction.DESC,"updated_at"));
+    public Page<Board> findAll(SearchForm form, int offset,int limit) {
+        Pageable pageable =  PageRequest.of(offset, limit, Sort.by(Sort.Direction.DESC,"updated_at"));
         return boardRepository.findAllByTitle(form,pageable);
     }
     @Transactional
