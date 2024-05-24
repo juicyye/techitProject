@@ -1,0 +1,23 @@
+<nav id="navbar-example2"
+     class="navbar navbar-light bg-secondary px-3 mb-3 d-flex justify-content-between align-items-center"
+     th:fragment="navbar" xmlns:sec="http://www.w3.org/1999/xhtml">
+    <a class="navbar-brand home-link" th:href="@{/}" style="color: white;" th:text="#{home.name}">홈</a>
+    <div>
+        <a th:href="@{/join}" class="link-style mr-2" sec:authorize="isAnonymous()" th:text="#{subhead.join}">회원가입</a>
+        <a th:href="@{/login}" class="link-style" sec:authorize="isAnonymous()" th:text="#{subhead.login}">로그인</a>
+        <a th:href="@{/logout}" class="link-style" sec:authorize="isAuthenticated()"
+           th:text="#{subhead.logout}">로그아웃</a>
+    </div>
+    <form th:action="@{/board/search}" method="get" class="w-25">
+        <div class="input-group">
+            <select class="form-control w-auto" name="key" style="width: 5px; text-align: center">
+                <option value="title" name="title">제목+내용</option>
+                <option value="name" name="name">작성자</option>
+            </select>
+            <input type="text" class="form-control"  name="value" style="flex: 2;">
+            <div class="input-group-append">
+                <button type="submit" class="btn btn-primary">검색</button>
+            </div>
+        </div>
+    </form>
+</nav>

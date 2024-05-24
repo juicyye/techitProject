@@ -1,0 +1,7 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="fieldError" th:if="${#fields.hasGlobalErrors()}">
+    <div class="alert alert-danger" role="alert" th:each="err : ${#fields.globalErrors()}">
+        <span th:text="${err}"></span>
+    </div>
+</div>
+</html>

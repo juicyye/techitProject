@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: board
+
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/techitboard?serverTimezone=UTC&characterEncoding=UTF-8
+    username: test
+    password: test123!
+  messages:
+    basename: messages,errors
+
+
+
+server:
+  servlet:
+    encoding:
+      force-response: true
+  port: 8081
+

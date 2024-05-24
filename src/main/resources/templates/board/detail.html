@@ -1,0 +1,23 @@
+<html th:replace="~{layout/header :: header(~{::title},~{::section})}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title th:text="#{title.detail}">Document</title>
+</head>
+<body>
+<section class="container mt-5 post-container">
+<div class="post-header">
+    <h1 class="post-title" th:text="${board.title}">게시글 제목</h1>
+    <div class="post-meta" th:text="${board.name} + ' | ' + (${board.created_at < board.updated_at} ? ${#temporals.format(board.updated_at, 'yyyy/MM/dd')} + ' (수정됨)' : ${#temporals.format(board.created_at, 'yyyy/MM/dd')})">작성자 및 작성일시</div>
+</div>
+<div class="post-content" th:text="${board.content}">
+</div>
+<div class="post-footer">
+    <a href="" th:href="@{|/board/modify/${board.id}|}" class="btn btn-success btn-action">수정</a>
+    <a href="" th:href="@{|/board/delete/${board.id}|}" class="btn btn-danger btn-action">삭제</a>
+</div>
+</section>
+</body>
+</html>

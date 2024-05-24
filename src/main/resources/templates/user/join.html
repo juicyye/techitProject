@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html th:replace="~{layout/header :: header(~{::title},~{::section})}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="#{title.join}">Sign Up Form</title>
+</head>
+<body>
+<section>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title text-center" th:text="#{subhead.join}">Sign Up</h5>
+                    </div>
+                    <div class="card-body">
+                        <form th:action method="post" th:object="${user}">
+                            <div th:replace="~{/layout/fielderror :: fieldError}"></div>
+                            <div class="mb-3">
+                                <label for="username" class="form-label" th:text="#{label.user.name}">Username</label>
+                                <input type="text" class="form-control" id="username" th:field="*{username}" th:errorclass="is-invalid">
+                                <div class="invalid-feedback" th:errors="*{username}"></div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label" th:text="#{label.user.password}">Password</label>
+                                <input type="password" class="form-control" id="password" th:field="*{password}" th:errorclass="is-invalid">
+                                <div class="invalid-feedback" th:errors="*{password}"></div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="confirm-password" class="form-label" th:text="#{label.user.password2}">Confirm Password</label>
+                                <input type="password" class="form-control" id="confirm-password" th:field="*{password2}" th:errorclass="is-invalid">
+                                <div class="invalid-feedback" th:errors="*{password2}"></div>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100" th:text="#{button.signup}">Sign Up</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html th:replace="~{layout/header :: header(~{::title},~{::section})}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="#{title.login}">Login Form</title>
+</head>
+<body>
+<section>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title text-center" th:text="#{subhead.login}">Login</h5>
+                </div>
+                <div class="card-body">
+                    <div th:if="${param.error}" class="form-group alert alert-danger">
+                        <span th:text="${exception}?: '잘못된 아이디나 암호입니다'" ></span>
+                    </div>
+                    <form th:action="@{/login}" method="post">
+                        <div class="mb-3">
+                            <label for="username" class="form-label" th:text="#{label.user.name}">Username</label>
+                            <input type="text" class="form-control" id="username" name="username" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label" th:text="#{label.user.password}">Password</label>
+                            <input type="password" class="form-control" id="password" name="password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100" th:text="#{button.login}">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+</body>
+</html>

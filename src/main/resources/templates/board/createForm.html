@@ -1,0 +1,44 @@
+<html th:replace="~{layout/header :: header(~{::title},~{::section})}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title th:text="#{title.create}">글쓰기</title>
+</head>
+<body>
+<section class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form action="" th:action method="post" th:object="${board}" class="bg-light p-4 rounded">
+                <div th:replace="~{/layout/fielderror :: fieldError}"></div>
+                <div class="form-group">
+                    <label for="name" th:text="#{label.board.name}">이름</label>
+                    <input type="text" id="name" class="form-control" th:field="*{name}" th:errorclass="is-invalid">
+                    <div class="invalid-feedback" th:errors="*{name}"></div>
+                </div>
+                <div class="form-group">
+                    <label for="title" th:text="#{label.board.title}">제목</label>
+                    <input type="text" id="title" class="form-control" th:field="*{title}" th:errorclass="is-invalid">
+                    <div class="invalid-feedback" th:errors="*{title}"></div>
+                </div>
+                <div class="form-group">
+                    <label for="content" th:text="#{label.board.content}">내용</label>
+                    <textarea id="content" class="form-control" rows="5" th:field="*{content}" th:errorclass="is-invalid"></textarea>
+                    <div class="invalid-feedback" th:errors="*{content}"></div>
+                </div>
+                <div class="form-group">
+                    <label for="password" th:text="#{label.board.password}">비밀번호</label>
+                    <input type="password" id="password" class="form-control" th:field="*{password}" th:errorclass="is-invalid">
+                    <div class="invalid-feedback" th:errors="*{password}"></div>
+                </div>
+                <div class="button-container">
+                    <button type="submit" class="btn btn-primary " th:text="#{button.save}">제출</button>
+                    <button type="button" th:onclick="|location.href='@{/board/list}'|" th:text="#{button.cancel}" class="btn btn-secondary">취소</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+</body>
+</html>
