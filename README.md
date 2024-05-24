@@ -1,9 +1,13 @@
-## 테킷 미니프로젝트 보드만들기
-### 사용기술
-- 스프링 JDBC
- -  MYSQL
- -  Spring Security
- -  Spring AOP
+<img src="https://capsule-render.vercel.app/api?type=waving&color=auto&height=200&section=header&text=테킷미니프로젝트&fontSize=60" />
+<div align=left>
+	<h3>📚 Tech Stack 📚</h3>
+	<p>✨ Platforms & Languages ✨</p>
+</div>
+<div align="left">
+	<img src="https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white" /> <img src="https://img.shields.io/badge/HTML-239120?style=for-the-badge&logo=html5&logoColor=white" /> <img src="https://img.shields.io/badge/CSS-239120?style=for-the-badge&logo=css3&logoColor=white" />
+<img src="https://img.shields.io/badge/JSS-F7DF1E?style=for-the-badge&logo=JSS&logoColor=white" /> <img src="https://img.shields.io/badge/Spring_Security-6DB33F?style=for-the-badge&logo=Spring-Security&logoColor=white"/> <img src="https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white" />
+</div>
+
 ### 1. 요구사항
 - 글을 올릴수 있는 게시판 만들기
 - 글을 쓸때 이름, 제목, 내용, 비밀번호를 치고
