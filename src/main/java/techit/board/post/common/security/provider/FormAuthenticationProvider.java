@@ -17,11 +17,14 @@ import techit.board.post.service.form.UserContext;
 public class FormAuthenticationProvider implements AuthenticationProvider {
     private final PasswordEncoder passwordEncoder;
     private final UserDetailsService userDetailsService;
+
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
         String username = authentication.getName();
         String password = (String) authentication.getCredentials();
+
         UserContext userContext = (UserContext) userDetailsService.loadUserByUsername(username);
+
         if(!passwordEncoder.matches(password,userContext.getPassword())){
             throw new BadCredentialsException("Invalid password");
         }

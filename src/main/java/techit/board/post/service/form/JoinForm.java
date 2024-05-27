@@ -7,7 +7,6 @@ import org.springframework.data.relational.core.mapping.Column;
 
 @Data
 public class JoinForm {
-    private Long id;
     @NotEmpty
     private String username;
     @NotEmpty

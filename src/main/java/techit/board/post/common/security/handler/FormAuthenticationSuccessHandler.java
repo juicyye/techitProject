@@ -18,6 +18,7 @@ import java.io.IOException;
 public class FormAuthenticationSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
     private final RequestCache requestCache = new HttpSessionRequestCache();
     private final RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
+
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
         setDefaultTargetUrl("/");

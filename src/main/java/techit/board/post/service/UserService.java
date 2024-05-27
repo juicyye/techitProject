@@ -16,10 +16,10 @@ public class UserService {
     private final PasswordEncoder passwordEncoder;
 
     @Transactional
-    public Long join(JoinForm form) {
+    public void join(JoinForm form) {
         form.setPassword(passwordEncoder.encode(form.getPassword()));
         User user = User.toEntity(form);
-        return userRepository.save(user).getId();
+        userRepository.save(user);
     }
 
     public boolean isDuplicate(String username) {

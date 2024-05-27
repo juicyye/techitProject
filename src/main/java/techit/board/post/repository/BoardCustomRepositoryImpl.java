@@ -55,6 +55,7 @@ public class BoardCustomRepositoryImpl implements BoardCustomRepository{
         String countSql = "select count(*) from board";
         String sql = "select * from board";
 
+
         if (key != null) {
             if (key.equals("title")) {
                 if (StringUtils.hasText(value)) {
@@ -63,7 +64,6 @@ public class BoardCustomRepositoryImpl implements BoardCustomRepository{
                     param.addValue("value", value);
                 }
             }
-
             if (key.equals("name")) {
                 if (StringUtils.hasText(value)) {
                     countSql += " where name like concat('%',:value,'%')";

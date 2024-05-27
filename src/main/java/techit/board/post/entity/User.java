@@ -1,9 +1,6 @@
 package techit.board.post.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import techit.board.post.service.form.JoinForm;
 import techit.board.post.service.form.UserForm;
@@ -14,6 +11,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @Getter
 @Builder
+@Setter
 public class User implements Serializable {
     @Id
     private Long id;

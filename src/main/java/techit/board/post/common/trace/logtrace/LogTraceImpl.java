@@ -35,7 +35,7 @@ public class LogTraceImpl implements LogTrace{
 
     private void complete(TraceStatus status, Exception e) {
         long endTimeMs = System.currentTimeMillis();
-        long resultTimeMs = status.getStartTimeMs() - endTimeMs;
+        long resultTimeMs = endTimeMs - status.getStartTimeMs();
         TraceId traceId = status.getTraceId();
         if (e == null) {
             log.info("[{}] {}{} time={}ms",traceId.getId(),addSpace(COMPLETE_PREFIX,traceId.getLevel()),status.getMessage(),resultTimeMs);
