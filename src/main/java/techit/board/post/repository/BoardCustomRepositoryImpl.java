@@ -34,12 +34,12 @@ public class BoardCustomRepositoryImpl implements BoardCustomRepository{
 
     @Override
     public void updateBoard(ModifyForm form) {
-        String sql = "update board set title=:title, content=:content, updated_at=:updated_at, password=:password " +
+        String sql = "update board set name=:name, content=:content, updated_at=:updated_at, title=:title " +
                 "where id=:id";
         MapSqlParameterSource param = new MapSqlParameterSource()
                 .addValue("title", form.getTitle())
                 .addValue("content", form.getContent())
-                .addValue("password", form.getPassword())
+                .addValue("name", form.getName())
                 .addValue("updated_at", LocalDateTime.now())
                 .addValue("id", form.getId());
 

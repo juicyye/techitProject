@@ -38,7 +38,7 @@ public class UserController {
             new SecurityContextLogoutHandler().logout(request, response, authentication);
         }
 
-        return "redirect:/login";
+        return "redirect:/";
     }
 
     @GetMapping("/join")

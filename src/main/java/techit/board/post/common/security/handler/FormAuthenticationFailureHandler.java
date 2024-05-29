@@ -22,7 +22,7 @@ public class FormAuthenticationFailureHandler extends SimpleUrlAuthenticationFai
             errorMessage = "Invalid Username or Password";
         }
         else if(exception instanceof UsernameNotFoundException) {
-            errorMessage = "User not exists";
+            errorMessage = "Invalid Username or Password";
         }
         else if(exception instanceof CredentialsExpiredException) {
             errorMessage = "Expired password";

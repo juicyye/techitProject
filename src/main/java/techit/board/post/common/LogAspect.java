@@ -8,6 +8,7 @@ import techit.board.post.common.trace.TraceStatus;
 import techit.board.post.common.trace.logtrace.LogTrace;
 
 @Aspect
+
 public class LogAspect {
     private LogTrace logTrace;
 

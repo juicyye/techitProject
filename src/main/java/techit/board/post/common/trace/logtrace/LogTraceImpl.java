@@ -19,13 +19,11 @@ public class LogTraceImpl implements LogTrace{
         TraceStatus traceStatus = new TraceStatus(traceId, message, startTimeMs);
         log.info("[{}] {}{}",traceId.getId(), addSpace(START_PREFIX,traceId.getLevel()),message);
         return traceStatus;
-
     }
 
     @Override
     public void end(TraceStatus status) {
         complete(status,null);
-
     }
 
     @Override
